@@ -26,8 +26,8 @@ ADXL345 3-axis accelerometer AndroidThings device driver.
 2- There is a sample in this repo like [androidthings](https://github.com/androidthings/drivers-samples) driver samples.
 
 ###First Impression
-![first_imp](first_imp.jpg)
-![first_imp_out](first_imp_out.jpg)
+![first_imp](first_imp.png)
+![first_imp_out](first_imp_out.png)
 
 License
 -------
