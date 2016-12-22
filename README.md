@@ -27,7 +27,7 @@ ADXL345 3-axis accelerometer AndroidThings device driver.
 
 ###First Impression
 ![first_imp](first_imp.png)
-![first_imp_out](first_imp_out.png)
+![first_imp_out](first_imp_out2.png)
 
 License
 -------
