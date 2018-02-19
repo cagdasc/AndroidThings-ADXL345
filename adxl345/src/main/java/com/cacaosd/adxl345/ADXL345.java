@@ -208,24 +208,15 @@ public class ADXL345 implements AutoCloseable {
     }
 
     public int getAccelerationX() throws IOException {
-        int lsb = this.mDevice.readRegByte(ADXL345_RA_DATAX0) & 0xff;
-        int msb = this.mDevice.readRegByte(ADXL345_RA_DATAX1);
-
-        return (msb << 8 | lsb);
+        return this.mDevice.readRegWord(ADXL345_RA_DATAX0);
     }
 
     public int getAccelerationY() throws IOException {
-        int lsb = this.mDevice.readRegByte(ADXL345_RA_DATAY0) & 0xff;
-        int msb = this.mDevice.readRegByte(ADXL345_RA_DATAY1);
-
-        return (msb << 8 | lsb);
+        return this.mDevice.readRegWord(ADXL345_RA_DATAY0);
     }
 
     public int getAccelerationZ() throws IOException {
-        int lsb = this.mDevice.readRegByte(ADXL345_RA_DATAZ0) & 0xff;
-        int msb = this.mDevice.readRegByte(ADXL345_RA_DATAZ1);
-
-        return (msb << 8 | lsb);
+        return this.mDevice.readRegWord(ADXL345_RA_DATAZ0);
     }
 
     public float[] getAccelerations() throws IOException {
