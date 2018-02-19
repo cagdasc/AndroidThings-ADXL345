@@ -1,8 +1,9 @@
 apply plugin: 'com.android.library'
+apply plugin: 'com.github.dcendents.android-maven'
+
 
 android {
     compileSdkVersion 25
-    buildToolsVersion "25.0.1"
 
     defaultConfig {
         minSdkVersion 19
@@ -22,5 +23,5 @@ android {
 
 dependencies {
     compile fileTree(dir: 'libs', include: ['*.jar'])
-    provided 'com.google.android.things:androidthings:0.1-devpreview'
+    provided 'com.google.android.things:androidthings:+'
 }

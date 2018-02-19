@@ -86,7 +86,7 @@ public class ADXL345SensorDriver implements AutoCloseable {
 
         private UserSensor getUserSensor() {
             if (mUserSensor == null) {
-                mUserSensor = UserSensor.builder()
+                mUserSensor = new UserSensor.Builder()
                         .setType(Sensor.TYPE_ACCELEROMETER)
                         .setName(DRIVER_NAME)
                         .setVendor(DRIVER_VENDOR)
