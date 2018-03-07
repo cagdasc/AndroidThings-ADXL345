@@ -19,9 +19,9 @@ package com.cacaosd.adxl345;
 import android.hardware.Sensor;
 
 import com.google.android.things.userdriver.UserDriverManager;
-import com.google.android.things.userdriver.UserSensor;
-import com.google.android.things.userdriver.UserSensorDriver;
-import com.google.android.things.userdriver.UserSensorReading;
+import com.google.android.things.userdriver.sensor.UserSensor;
+import com.google.android.things.userdriver.sensor.UserSensorDriver;
+import com.google.android.things.userdriver.sensor.UserSensorReading;
 
 import java.io.IOException;
 import java.util.UUID;
@@ -57,13 +57,13 @@ public class ADXL345SensorDriver implements AutoCloseable {
 
         if (mUserDriver == null) {
             mUserDriver = new AccelerometerUserDriver();
-            UserDriverManager.getManager().registerSensor(mUserDriver.getUserSensor());
+            UserDriverManager.getInstance().registerSensor(mUserDriver.getUserSensor());
         }
     }
 
     public void unregisterAccelerometerSensor() {
         if (mUserDriver != null) {
-            UserDriverManager.getManager().unregisterSensor(mUserDriver.getUserSensor());
+            UserDriverManager.getInstance().unregisterSensor(mUserDriver.getUserSensor());
             mUserDriver = null;
         }
     }
@@ -80,7 +80,7 @@ public class ADXL345SensorDriver implements AutoCloseable {
         }
     }
 
-    private class AccelerometerUserDriver extends UserSensorDriver {
+    private class AccelerometerUserDriver implements UserSensorDriver {
 
         private UserSensor mUserSensor;
 

@@ -17,7 +17,7 @@
 package com.cacaosd.adxl345;
 
 import com.google.android.things.pio.I2cDevice;
-import com.google.android.things.pio.PeripheralManagerService;
+import com.google.android.things.pio.PeripheralManager;
 
 import java.io.IOException;
 
@@ -154,8 +154,8 @@ public class ADXL345 implements AutoCloseable {
     private I2cDevice mDevice;
 
     public ADXL345(String bus) throws IOException {
-        PeripheralManagerService peripheralManagerService = new PeripheralManagerService();
-        I2cDevice device = peripheralManagerService.openI2cDevice(bus, ADXL345_DEFAULT_ADDRESS);
+        PeripheralManager peripheralManager = PeripheralManager.getInstance();
+        I2cDevice device = peripheralManager.openI2cDevice(bus, ADXL345_DEFAULT_ADDRESS);
         try {
             connect(device);
         } catch (IOException | RuntimeException e) {

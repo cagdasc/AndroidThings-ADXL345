@@ -2,7 +2,7 @@ package com.cacaosd.sample;
 
 import android.os.Build;
 
-import com.google.android.things.pio.PeripheralManagerService;
+import com.google.android.things.pio.PeripheralManager;
 
 import java.util.List;
 
@@ -44,8 +44,8 @@ public class BoardDefaults {
         // For the edison check the pin prefix
         // to always return Edison Breakout pin name when applicable.
         if (sBoardVariant.equals(DEVICE_EDISON)) {
-            PeripheralManagerService pioService = new PeripheralManagerService();
-            List<String> gpioList = pioService.getGpioList();
+            PeripheralManager pioManager = PeripheralManager.getInstance();
+            List<String> gpioList = pioManager.getGpioList();
             if (gpioList.size() != 0) {
                 String pin = gpioList.get(0);
                 if (pin.startsWith("IO")) {
