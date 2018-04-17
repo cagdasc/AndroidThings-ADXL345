@@ -20,7 +20,7 @@ android {
 }
 
 dependencies {
-    compile fileTree(include: ['*.jar'], dir: 'libs')
-    compile project(':adxl345')
-    provided 'com.google.android.things:androidthings:0.7-devpreview'
+    implementation fileTree(include: ['*.jar'], dir: 'libs')
+    implementation project(':adxl345')
+    implementation 'com.google.android.things:androidthings:0.8-devpreview'
 }

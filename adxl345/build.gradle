@@ -1,5 +1,4 @@
 apply plugin: 'com.android.library'
-apply plugin: 'com.github.dcendents.android-maven'
 
 
 android {
@@ -22,6 +21,6 @@ android {
 }
 
 dependencies {
-    compile fileTree(dir: 'libs', include: ['*.jar'])
-    provided 'com.google.android.things:androidthings:0.7-devpreview'
+    api fileTree(dir: 'libs', include: ['*.jar'])
+    implementation 'com.google.android.things:androidthings:0.8-devpreview'
 }

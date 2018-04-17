@@ -39,7 +39,6 @@ public class ADXL345SensorDriver implements AutoCloseable {
     private static final float DRIVER_POWER = 2.5f; // Volt
     private static final int DRIVER_MAX_DELAY_US = Math.round(1000000.f / 0.1f);
     private static final int DRIVER_MIN_DELAY_US = Math.round(1000000.f / 3200.0f);
-    private static final String DRIVER_REQUIRED_PERMISSION = "";
 
     private static final String TAG = ADXL345SensorDriver.class.getName();
 
@@ -94,7 +93,6 @@ public class ADXL345SensorDriver implements AutoCloseable {
                         .setResolution(DRIVER_RESOLUTION)
                         .setPower(DRIVER_POWER)
                         .setMinDelay(DRIVER_MIN_DELAY_US)
-                        .setRequiredPermission(DRIVER_REQUIRED_PERMISSION)
                         .setMaxDelay(DRIVER_MAX_DELAY_US)
                         .setUuid(UUID.randomUUID())
                         .setDriver(this)
