@@ -1,13 +1,12 @@
 apply plugin: 'com.android.application'
 
 android {
-    compileSdkVersion 24
-    buildToolsVersion "25.0.1"
+    compileSdkVersion 27
 
     defaultConfig {
         applicationId "com.cacaosd.sample"
-        minSdkVersion 24
-        targetSdkVersion 24
+        minSdkVersion 27
+        targetSdkVersion 27
         versionCode 1
         versionName "1.0"
 
@@ -21,7 +20,7 @@ android {
 }
 
 dependencies {
-    compile fileTree(include: ['*.jar'], dir: 'libs')
-    compile project(':adxl345')
-    provided 'com.google.android.things:androidthings:0.1-devpreview'
+    implementation fileTree(include: ['*.jar'], dir: 'libs')
+    implementation project(':adxl345')
+    implementation 'com.google.android.things:androidthings:0.8-devpreview'
 }

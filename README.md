@@ -1,6 +1,8 @@
 # AndroidThings-ADXL345
 ADXL345 3-axis accelerometer AndroidThings device driver.
 
+\*Note this is a maintained fork of this project adding support for Android Things DP6 and DP7.
+
 ### Usage
 1- Simple usage with create an object and call methods.
 ```java

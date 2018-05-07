@@ -19,9 +19,9 @@ package com.cacaosd.adxl345;
 import android.hardware.Sensor;
 
 import com.google.android.things.userdriver.UserDriverManager;
-import com.google.android.things.userdriver.UserSensor;
-import com.google.android.things.userdriver.UserSensorDriver;
-import com.google.android.things.userdriver.UserSensorReading;
+import com.google.android.things.userdriver.sensor.UserSensor;
+import com.google.android.things.userdriver.sensor.UserSensorDriver;
+import com.google.android.things.userdriver.sensor.UserSensorReading;
 
 import java.io.IOException;
 import java.util.UUID;
@@ -39,7 +39,6 @@ public class ADXL345SensorDriver implements AutoCloseable {
     private static final float DRIVER_POWER = 2.5f; // Volt
     private static final int DRIVER_MAX_DELAY_US = Math.round(1000000.f / 0.1f);
     private static final int DRIVER_MIN_DELAY_US = Math.round(1000000.f / 3200.0f);
-    private static final String DRIVER_REQUIRED_PERMISSION = "";
 
     private static final String TAG = ADXL345SensorDriver.class.getName();
 
@@ -57,13 +56,13 @@ public class ADXL345SensorDriver implements AutoCloseable {
 
         if (mUserDriver == null) {
             mUserDriver = new AccelerometerUserDriver();
-            UserDriverManager.getManager().registerSensor(mUserDriver.getUserSensor());
+            UserDriverManager.getInstance().registerSensor(mUserDriver.getUserSensor());
         }
     }
 
     public void unregisterAccelerometerSensor() {
         if (mUserDriver != null) {
-            UserDriverManager.getManager().unregisterSensor(mUserDriver.getUserSensor());
+            UserDriverManager.getInstance().unregisterSensor(mUserDriver.getUserSensor());
             mUserDriver = null;
         }
     }
@@ -80,13 +79,13 @@ public class ADXL345SensorDriver implements AutoCloseable {
         }
     }
 
-    private class AccelerometerUserDriver extends UserSensorDriver {
+    private class AccelerometerUserDriver implements UserSensorDriver {
 
         private UserSensor mUserSensor;
 
         private UserSensor getUserSensor() {
             if (mUserSensor == null) {
-                mUserSensor = UserSensor.builder()
+                mUserSensor = new UserSensor.Builder()
                         .setType(Sensor.TYPE_ACCELEROMETER)
                         .setName(DRIVER_NAME)
                         .setVendor(DRIVER_VENDOR)
@@ -94,7 +93,6 @@ public class ADXL345SensorDriver implements AutoCloseable {
                         .setResolution(DRIVER_RESOLUTION)
                         .setPower(DRIVER_POWER)
                         .setMinDelay(DRIVER_MIN_DELAY_US)
-                        .setRequiredPermission(DRIVER_REQUIRED_PERMISSION)
                         .setMaxDelay(DRIVER_MAX_DELAY_US)
                         .setUuid(UUID.randomUUID())
                         .setDriver(this)

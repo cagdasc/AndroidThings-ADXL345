@@ -1,12 +1,12 @@
 apply plugin: 'com.android.library'
 
+
 android {
-    compileSdkVersion 25
-    buildToolsVersion "25.0.1"
+    compileSdkVersion 27
 
     defaultConfig {
-        minSdkVersion 19
-        targetSdkVersion 25
+        minSdkVersion 27
+        targetSdkVersion 27
         versionCode 1
         versionName "1.0"
 
@@ -21,6 +21,6 @@ android {
 }
 
 dependencies {
-    compile fileTree(dir: 'libs', include: ['*.jar'])
-    provided 'com.google.android.things:androidthings:0.1-devpreview'
+    api fileTree(dir: 'libs', include: ['*.jar'])
+    implementation 'com.google.android.things:androidthings:0.8-devpreview'
 }

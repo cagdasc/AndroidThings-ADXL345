@@ -78,9 +78,7 @@ public class AccelerometerActivity extends Activity implements SensorEventListen
 
     @Override
     public void onSensorChanged(SensorEvent event) {
-        Log.d(TAG, "Accel X " + event.values[0]);
-        Log.d(TAG, "Accel Y " + event.values[1]);
-        Log.d(TAG, "Accel Z " + event.values[2]);
+        Log.d(TAG, "Accel X " + event.values[0] + " Y " + event.values[1] + " Z " + event.values[2]);
     }
 
     @Override
